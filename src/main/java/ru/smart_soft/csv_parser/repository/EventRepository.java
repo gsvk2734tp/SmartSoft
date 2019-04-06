@@ -11,6 +11,4 @@ public interface EventRepository {
     void deleteAll();
 
     List<Event> findAll();
-
-//    List<Event> findTopFiveForm();
 }

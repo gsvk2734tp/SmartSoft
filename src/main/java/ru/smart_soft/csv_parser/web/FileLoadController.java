@@ -29,8 +29,9 @@ public class FileLoadController extends AbstractLoadController {
     }
 
     @GetMapping("/report")
-    public String report() {
-        return "redirect:/index";
+    public String report(Model model) {
+        model.addAttribute("hourform", super.findAllLastHour());
+        return "lastHour";
     }
 
     @GetMapping("/topFive")

@@ -34,15 +34,19 @@ public class EventServiceimpl implements EventService {
     }
 
     @Override
-    public List<Event> findAll() {
-        return null;
+    public Map<String, String> findAllLastHour() {
+        return repository.findAll().stream()
+                .filter(x -> (System.currentTimeMillis()/1000 - Long.valueOf(x.getTime())) < 3600)
+                .filter(x -> !(x.getUrl().isEmpty()))
+                .collect(Collectors.groupingBy(Event::getUserId, Collectors.mapping(Event::getUrl, Collectors.joining(",\n")))
+                );
     }
 
     @Override
     public Map<String, Long> findTopFiveForm() {
         Map<String, Long> eventSumByIdForm = repository.findAll().stream()
-                .filter(x -> !(x.getFormid().isEmpty()))
-                .collect(Collectors.groupingBy(Event::getFormid, Collectors.counting()));
+                .filter(x -> !(x.getUrl().isEmpty()))
+                .collect(Collectors.groupingBy(Event::getUrl, Collectors.counting()));
 
         return eventSumByIdForm.entrySet().stream()
                 .sorted(Map.Entry.<String, Long>comparingByValue().reversed())

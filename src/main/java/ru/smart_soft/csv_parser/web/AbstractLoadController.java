@@ -3,7 +3,6 @@ package ru.smart_soft.csv_parser.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import ru.smart_soft.csv_parser.model.Event;
 import ru.smart_soft.csv_parser.service.EventService;
 import ru.smart_soft.csv_parser.service.Utils.CsvToBeanUtil;
@@ -29,8 +28,8 @@ public class AbstractLoadController {
         service.deleteAll();
     }
 
-    List<Event> findAll(Sort sort) {
-        return null;
+    Map<String, String> findAllLastHour() {
+        return service.findAllLastHour();
     }
 
     Map<String, Long> findTopFiveForm() {

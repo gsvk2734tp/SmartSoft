@@ -4,17 +4,10 @@
 
 <html>
 <jsp:include page="headTag.jsp"/>
-<link href="<c:url value="/resources/css/mainPage.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/addFile.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/Button.css" />" rel="stylesheet">
 
 <body>
-<div class="loaderArea">
-    <div class="loader"></div>
-</div>
-
-<!-- SCRIPTS -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mainPage.js" defer></script>
 <div class="container">
     <div class="jumbotron bg-light">
         <h1>CSV-PARSER</h1>
@@ -25,37 +18,38 @@
                 <i class="icon fa fa-check"></i>
                 <span class="js-fileName">Choose a file</span>
             </label>
-                <button type="submit" class="btn btn-primary">
-                    <span class="fa fa-check"></span>
-                    Upload
-                </button>
+            <button type="submit">
+                <span class="fa fa-check"></span>
+                Upload
+            </button>
         </form>
     </div>
 </div>
-
 <!--REPORTS -->
 <div class="container marketing">
-        <div class="row shadow p-3 mb-5 bg-light rounded">
-            <div class="col-lg-4 border-dark">
-                <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/1.png/">
-                <form action="CSV/report">
-                    <button class="offset">Show Report</button>
-                </form>
-            </div>
-            <div class="col-lg-4">
-                <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/5.png">
-                <form action="CSV/notFinished">
-                    <button class="offset">Show Report</button>
-                </form>
-            </div>
-            <div class="col-lg-4">
-                <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/Top-5.gif">
-                <form action="CSV/topFive/">
-                    <button class="offset">Show Report</button>
-                </form>
-            </div>
+    <div class="row shadow p-3 mb-5 bg-light rounded">
+        <div class="col-lg-4 border-dark">
+            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/1.png/">
+            <form action="CSV/report">
+                <button>Show Report</button>
+            </form>
         </div>
+        <div class="col-lg-4">
+            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/5.png">
+            <form action="CSV/notFinished">
+                <button>Show Report</button>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/Top-5.gif">
+            <form action="CSV/topFive/">
+                <button>Show Report</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="loaderArea">
+    <div class="loader"></div>
 </div>
 </body>
-
 </html>

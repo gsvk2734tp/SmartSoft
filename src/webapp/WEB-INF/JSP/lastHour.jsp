@@ -7,17 +7,17 @@
 
 <body>
 <div class="table-title">
-    <h3>Самые популярные формы</h3>
+    <h3>Пользователи, которые не дошли до конца</h3>
 </div>
 <table class="table-fill">
     <thead>
     <tr>
-        <th class="text-left">Url формы</th>
-        <th class="text-left">Количество переходов</th>
+        <th class="text-left">Id пользователя</th>
+        <th class="text-left">Последний шаг</th>
     </tr>
     </thead>
     <tbody class="table-hover">
-    <c:forEach items="${topform}" var="entry">
+    <c:forEach items="${hourform}" var="entry">
         <tr>
             <td class="text-left">${entry.key}</td>
             <td class="text-left">${entry.value}</td>

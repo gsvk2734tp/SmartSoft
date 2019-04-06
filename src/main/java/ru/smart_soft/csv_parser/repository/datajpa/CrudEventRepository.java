@@ -1,6 +1,5 @@
 package ru.smart_soft.csv_parser.repository.datajpa;
 
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.smart_soft.csv_parser.model.Event;
@@ -18,10 +17,7 @@ public interface CrudEventRepository extends JpaRepository<Event, Integer> {
     @Transactional
     void deleteAll();
 
-    //TODO group by ID
     @Override
     List<Event> findAll();
-
-    //List<Event> findTopFiveForm();
 
 }
