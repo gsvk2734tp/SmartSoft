@@ -28,6 +28,7 @@ public class DataJpaEventImpl implements EventRepository {
     }
 
     @Override
+    @Transactional
     public List<Event> findAll() {
         return repository.findAll();
     }

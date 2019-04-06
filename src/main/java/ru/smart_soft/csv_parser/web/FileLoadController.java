@@ -16,16 +16,17 @@ import java.io.InputStreamReader;
 public class FileLoadController extends AbstractLoadController {
 
     @PostMapping("/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file) throws IOException, InterruptedException {
+    public String uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         if (!file.isEmpty()) {
             saveEventByCsvFile(new InputStreamReader(file.getInputStream()));
         }
-        return "redirect:/index";
+        return "redirect:/mainPage";
     }
 
     @GetMapping("/notFinished")
-    public String notFinished() {
-        return "redirect:/index";
+    public String notFinished(Model model) {
+        model.addAttribute("notFinish", super.findAllUsersNotFinish());
+        return "notFinish";
     }
 
     @GetMapping("/report")

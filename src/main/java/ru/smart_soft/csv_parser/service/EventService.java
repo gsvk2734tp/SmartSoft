@@ -13,4 +13,6 @@ public interface EventService {
     Map<String, String> findAllLastHour();
 
     Map<String, Long> findTopFiveForm();
+
+    Map<String, String> findAllUsersNotFinish();
 }

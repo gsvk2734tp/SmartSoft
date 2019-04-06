@@ -18,7 +18,6 @@ import java.util.Map;
 public class CsvToBeanUtil {
     private HeaderColumnNameTranslateMappingStrategy<Event> strategy;
 
-
     public CsvToBeanUtil() {
         Map<String, String> mapping = new HashMap<>() {
             {

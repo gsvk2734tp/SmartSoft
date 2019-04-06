@@ -8,7 +8,6 @@ import ru.smart_soft.csv_parser.service.EventService;
 import ru.smart_soft.csv_parser.service.Utils.CsvToBeanUtil;
 
 import java.io.Reader;
-import java.util.List;
 import java.util.Map;
 
 public class AbstractLoadController {
@@ -18,32 +17,37 @@ public class AbstractLoadController {
     private EventService service;
 
     Event save(Event event) {
-        log.info("SAVE {}", event);
+        log.info("Save {}", event);
         service.save(event);
         return event;
     }
 
     void deleteAll() {
-        log.info("DELETE ALL ROWS");
+        log.info("Delete all rows");
         service.deleteAll();
     }
 
+    public Map<String, String> findAllUsersNotFinish() {
+        log.info("Get all users dont finish form");
+        return service.findAllUsersNotFinish();
+    }
+
     Map<String, String> findAllLastHour() {
+        log.info("Get all active users last hour");
         return service.findAllLastHour();
     }
 
     Map<String, Long> findTopFiveForm() {
-        log.info("GET TOP 5 FORM");
+        log.info("Get top 5 url");
         return service.findTopFiveForm();
     }
 
     void saveEventByCsvFile(Reader stream) {
         deleteAll();
         log.info("==========================================");
-        log.info("START CONVERT CSV FILE");
+        log.info("Start convert CSV file");
         log.info("==========================================");
         CsvToBeanUtil converter = new CsvToBeanUtil();
         converter.convertToBean(stream).forEach(this::save);
     }
-
 }

@@ -7,13 +7,13 @@
 
 <body>
 <div class="table-title">
-    <h3>Пользователи, которые не дошли до конца</h3>
+    <h3>Активность пользователей за последний час</h3>
 </div>
 <table class="table-fill">
     <thead>
     <tr>
         <th class="text-left">Id пользователя</th>
-        <th class="text-left">Последний шаг</th>
+        <th class="text-left">URL активных форм<</th>
     </tr>
     </thead>
     <tbody class="table-hover">

@@ -7,17 +7,17 @@
 
 <body>
 <div class="table-title">
-    <h3>Активность пользователей за последний час</h3>
+    <h3>Пользователи, которые не дошли до конца</h3>
 </div>
 <table class="table-fill">
     <thead>
     <tr>
         <th class="text-left">Id пользователя</th>
-        <th class="text-left">URL активных форм</th>
+        <th class="text-left">Последний шаг</th>
     </tr>
     </thead>
     <tbody class="table-hover">
-    <c:forEach items="${hourform}" var="entry">
+    <c:forEach items="${notFinish}" var="entry">
         <tr>
             <td class="text-left">${entry.key}</td>
             <td class="text-left">${entry.value}</td>
