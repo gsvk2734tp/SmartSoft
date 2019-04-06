@@ -1,0 +1,23 @@
+edit {
+    --color: #03A9F4;
+    --hover: #2962FF;
+}
+button.edit {
+    width: 120px;
+}
+
+button:hover, button:focus {
+    border-color: var(--hover);
+    color: #03A9F4;
+}
+
+button {
+    color: var(--color);
+    transition: 0.25s;
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 1em;
+    padding: 1em 2em;
+}
