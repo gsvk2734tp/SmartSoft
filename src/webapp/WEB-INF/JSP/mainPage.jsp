@@ -5,7 +5,7 @@
 <html>
 <jsp:include page="headTag.jsp"/>
 <link href="<c:url value="/resources/css/addFile.css"/>" rel="stylesheet">
-<link href="<c:url value="/resources/css/Button.css" />" rel="stylesheet">
+
 
 <body>
 <div class="container">
@@ -18,10 +18,7 @@
                 <i class="icon fa fa-check"></i>
                 <span class="js-fileName">Choose a file</span>
             </label>
-            <button type="submit">
-                <span class="fa fa-check"></span>
-                Upload
-            </button>
+            <button type="submit">Upload</button>
         </form>
     </div>
 </div>

@@ -7,17 +7,20 @@
 
 <body>
 <div class="table-title">
-    <h3 class="text-center">Самые популярные формы</h3>
+    <h3 class="text-center">Most popular forms</h3>
 </div>
+<form action="${pageContext.request.contextPath}/mainPage">
+    <button class="cancelB">Home page</button>
+</form>
 <table class="table-fill">
     <c:if test="${empty topform}">
-        <h2 class="text-center error">Отчет пуст. Попробуйте загрузить другой файл.</h2>
+        <h2 class="text-center error">The report is empty. Try downloading another file.</h2>
     </c:if>
     <c:if test="${not empty topform}">
         <thead>
         <tr>
-            <th class="text-left">Url формы</th>
-            <th class="text-left">Количество переходов</th>
+            <th class="text-left">Url form</th>
+            <th class="text-left">Hop count</th>
         </tr>
         </thead>
         <tbody class="table-hover">

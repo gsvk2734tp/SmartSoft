@@ -7,17 +7,20 @@
 
 <body>
 <div class="table-title">
-    <h3>Активность пользователей за последний час</h3>
+    <h3>User activity in the last hour</h3>
 </div>
+<form action="${pageContext.request.contextPath}/mainPage">
+    <button class="cancelB">Home page</button>
+</form>
 <table class="table-fill">
     <c:if test="${empty hourform}">
-    <h2 class="text-center" style="background-color: #f44336">Отчет пуст. Попробуйте загрузить другой файл.</h2>
+    <h2 class="text-center" style="background-color: #f44336">The report is empty. Try downloading another file.</h2>
     </c:if>
     <c:if test="${not empty hourform}">
     <thead>
     <tr>
-        <th class="text-left">Id пользователя</th>
-        <th class="text-left">URL активных форм</th>
+        <th class="text-left">User Id</th>
+        <th class="text-left">URL active forms</th>
     </tr>
     </thead>
     <tbody class="table-hover">

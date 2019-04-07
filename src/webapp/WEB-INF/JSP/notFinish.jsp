@@ -7,17 +7,20 @@
 
 <body>
 <div class="table-title">
-    <h3>Пользователи, которые не дошли до конца</h3>
+    <h3>Users who have not reached the end</h3>
 </div>
+<form action="${pageContext.request.contextPath}/mainPage">
+    <button class="cancelB">Home page</button>
+</form>
 <table class="table-fill">
     <c:if test="${empty notFinish}">
-        <h2 class="text-center" style="background-color: #f44336">Отчет пуст. Попробуйте загрузить другой файл.</h2>
+        <h2 class="text-center" style="background-color: #f44336">The report is empty. Try downloading another file.</h2>
     </c:if>
     <c:if test="${not empty notFinish}">
         <thead>
         <tr>
-            <th class="text-left">Id пользователя</th>
-            <th class="text-left">Последний шаг</th>
+            <th class="text-left">User Id</th>
+            <th class="text-left">Last step</th>
         </tr>
         </thead>
         <tbody class="table-hover">
