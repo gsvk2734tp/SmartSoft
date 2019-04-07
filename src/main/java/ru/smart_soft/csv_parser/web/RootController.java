@@ -11,7 +11,7 @@ public class RootController {
         return "mainPage";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/mainPage")
     public String home() {
         return "mainPage";
     }
