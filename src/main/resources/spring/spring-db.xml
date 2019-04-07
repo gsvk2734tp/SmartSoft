@@ -17,27 +17,24 @@
 
     <tx:annotation-driven/>
 
-    <beans profile="postgres">
-        <context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>
-
+    <beans>
         <bean id="dataSource"
-              class="org.apache.tomcat.jdbc.pool.DataSource"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource"
               p:driverClassName="org.postgresql.Driver"
-              p:url="${db.url}"
-              p:username="${db.username}"
-              p:password="${db.password}"/>
-    </beans>
+              p:url="jdbc:postgresql://localhost:5432/csv_parser"
+              p:username="user"
+              p:password="1234"/>
 
-    <beans profile="datajpa">
+
         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
               p:dataSource-ref="dataSource"
               p:packagesToScan="ru.smart_soft.**.model">
 
             <property name="jpaPropertyMap">
                 <map>
-                    <entry key="#{T(org.hibernate.cfg.AvailableSettings).FORMAT_SQL}" value="${hibernate.format_sql}"/>
+                    <entry key="#{T(org.hibernate.cfg.AvailableSettings).FORMAT_SQL}" value="true"/>
                     <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SQL_COMMENTS}"
-                           value="${hibernate.use_sql_comments}"/>
+                           value="true"/>
                     <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_AUTO}" value="${hibernate.hbm2ddl.auto}"/>-->
 
                     <!--https://github.com/hibernate/hibernate-orm/blob/master/documentation/src/main/asciidoc/userguide/chapters/caching/Caching.adoc#caching-provider-jcache-->
@@ -57,7 +54,7 @@
                 </map>
             </property>
             <property name="jpaVendorAdapter">
-                <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" p:showSql="${jpa.showSql}">
+                <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" p:showSql="true">
                 </bean>
             </property>
         </bean>
