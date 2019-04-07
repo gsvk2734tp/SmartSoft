@@ -36,8 +36,8 @@ public class EventServiceimpl implements EventService {
     @Override
     public Map<String, String> findAllLastHour() {
         return repository.findAll().stream()
-                .filter(event -> (System.currentTimeMillis() / 1000 - Long.valueOf(event.getTime())) < 3600)
                 .filter(event -> !(event.getUrl().isEmpty()))
+                .filter(event -> (System.currentTimeMillis() / 1000 - Long.valueOf(event.getTime())) < 3600)
                 .collect(groupingBy(Event::getUserId, Collectors.mapping(Event::getUrl, Collectors.joining(",\n"))));
     }
 

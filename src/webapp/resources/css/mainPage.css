@@ -108,3 +108,7 @@ a.btn {
         transform: rotate(-180deg) skew(-360deg);
     }
 }
+
+.error {
+    background-color: #f44336;
+}

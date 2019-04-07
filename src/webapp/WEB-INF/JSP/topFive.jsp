@@ -7,23 +7,28 @@
 
 <body>
 <div class="table-title">
-    <h3>Самые популярные формы</h3>
+    <h3 class="text-center">Самые популярные формы</h3>
 </div>
 <table class="table-fill">
-    <thead>
-    <tr>
-        <th class="text-left">Url формы</th>
-        <th class="text-left">Количество переходов</th>
-    </tr>
-    </thead>
-    <tbody class="table-hover">
-    <c:forEach items="${topform}" var="entry">
+    <c:if test="${empty topform}">
+        <h2 class="text-center error">Отчет пуст. Попробуйте загрузить другой файл.</h2>
+    </c:if>
+    <c:if test="${not empty topform}">
+        <thead>
         <tr>
-            <td class="text-left">${entry.key}</td>
-            <td class="text-left">${entry.value}</td>
+            <th class="text-left">Url формы</th>
+            <th class="text-left">Количество переходов</th>
         </tr>
-    </c:forEach>
-    </tbody>
+        </thead>
+        <tbody class="table-hover">
+        <c:forEach items="${topform}" var="entry">
+            <tr>
+                <td class="text-left">${entry.key}</td>
+                <td class="text-left">${entry.value}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </c:if>
 </table>
 <div class="loaderArea">
     <div class="loader"></div>

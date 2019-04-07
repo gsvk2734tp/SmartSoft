@@ -10,20 +10,25 @@
     <h3>Пользователи, которые не дошли до конца</h3>
 </div>
 <table class="table-fill">
-    <thead>
-    <tr>
-        <th class="text-left">Id пользователя</th>
-        <th class="text-left">Последний шаг</th>
-    </tr>
-    </thead>
-    <tbody class="table-hover">
-    <c:forEach items="${notFinish}" var="entry">
+    <c:if test="${empty notFinish}">
+        <h2 class="text-center" style="background-color: #f44336">Отчет пуст. Попробуйте загрузить другой файл.</h2>
+    </c:if>
+    <c:if test="${not empty notFinish}">
+        <thead>
         <tr>
-            <td class="text-left">${entry.key}</td>
-            <td class="text-left">${entry.value}</td>
+            <th class="text-left">Id пользователя</th>
+            <th class="text-left">Последний шаг</th>
         </tr>
-    </c:forEach>
-    </tbody>
+        </thead>
+        <tbody class="table-hover">
+        <c:forEach items="${notFinish}" var="entry">
+            <tr>
+                <td class="text-left">${entry.key}</td>
+                <td class="text-left">${entry.value}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </c:if>
 </table>
 <div class="loaderArea">
     <div class="loader"></div>

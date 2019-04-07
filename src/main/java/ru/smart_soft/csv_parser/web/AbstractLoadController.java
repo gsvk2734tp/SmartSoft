@@ -1,5 +1,6 @@
 package ru.smart_soft.csv_parser.web;
 
+import org.hibernate.mapping.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import ru.smart_soft.csv_parser.service.EventService;
 import ru.smart_soft.csv_parser.service.Utils.CsvToBeanUtil;
 
 import java.io.Reader;
+import java.util.Collections;
 import java.util.Map;
 
 public class AbstractLoadController {
@@ -29,17 +31,18 @@ public class AbstractLoadController {
 
     public Map<String, String> findAllUsersNotFinish() {
         log.info("Get all users dont finish form");
-        return service.findAllUsersNotFinish();
+        return checkEmpty(service.findAllUsersNotFinish());
     }
 
     Map<String, String> findAllLastHour() {
         log.info("Get all active users last hour");
-        return service.findAllLastHour();
+        return checkEmpty(service.findAllLastHour());
     }
 
     Map<String, Long> findTopFiveForm() {
         log.info("Get top 5 url");
-        return service.findTopFiveForm();
+        Map<String, Long> map = service.findTopFiveForm();
+        return map.isEmpty() ? Collections.emptyMap() : map;
     }
 
     void saveEventByCsvFile(Reader stream) {
@@ -49,5 +52,9 @@ public class AbstractLoadController {
         log.info("==========================================");
         CsvToBeanUtil converter = new CsvToBeanUtil();
         converter.convertToBean(stream).forEach(this::save);
+    }
+
+    Map<String, String> checkEmpty(Map map) {
+        return map.isEmpty() ? Collections.emptyMap() : map;
     }
 }
