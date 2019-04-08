@@ -3,6 +3,7 @@ package ru.smart_soft.csv_parser.model;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "csv_parser")
@@ -177,5 +178,29 @@ public class Event extends AbstractBaseEntity {
                 ", sudirresponse='" + sudirresponse + '\'' +
                 ", dateTime=" + dateTime +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return Objects.equals(UserId, event.UserId) &&
+                Objects.equals(time, event.time) &&
+                Objects.equals(group, event.group) &&
+                Objects.equals(type, event.type) &&
+                Objects.equals(subtype, event.subtype) &&
+                Objects.equals(url, event.url) &&
+                Objects.equals(orgId, event.orgId) &&
+                Objects.equals(formid, event.formid) &&
+                Objects.equals(ltpa, event.ltpa) &&
+                Objects.equals(code, event.code) &&
+                Objects.equals(sudirresponse, event.sudirresponse) &&
+                Objects.equals(dateTime, event.dateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(UserId, time, group, type, subtype, url, orgId, formid, ltpa, code, sudirresponse, dateTime);
     }
 }

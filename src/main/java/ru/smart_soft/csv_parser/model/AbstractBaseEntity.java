@@ -1,7 +1,6 @@
 package ru.smart_soft.csv_parser.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @MappedSuperclass
 @Access(AccessType.FIELD)
@@ -25,16 +24,4 @@ public abstract class AbstractBaseEntity {
         this.id = id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AbstractBaseEntity that = (AbstractBaseEntity) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id == null ? 0 : id;
-    }
 }
