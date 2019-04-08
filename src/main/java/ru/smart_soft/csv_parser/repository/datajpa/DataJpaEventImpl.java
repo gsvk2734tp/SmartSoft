@@ -14,7 +14,6 @@ public class DataJpaEventImpl implements EventRepository {
     @Autowired
     private CrudEventRepository repository;
 
-
     @Override
     @Transactional
     public Event save(Event event) {

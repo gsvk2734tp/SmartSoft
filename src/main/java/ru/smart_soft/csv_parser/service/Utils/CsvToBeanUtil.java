@@ -4,16 +4,11 @@ import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.bean.CsvToBean;
 import au.com.bytecode.opencsv.bean.HeaderColumnNameTranslateMappingStrategy;
 import ru.smart_soft.csv_parser.model.Event;
-
-import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * https://www.geeksforgeeks.org/mapping-csv-to-javabeans-using-opencsv/
- */
 
 public class CsvToBeanUtil {
     private HeaderColumnNameTranslateMappingStrategy<Event> strategy;

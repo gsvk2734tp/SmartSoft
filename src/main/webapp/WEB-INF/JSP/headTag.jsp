@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="webjars/noty/3.1.4/demo/font-awesome/css/font-awesome.min.css">
     <link href="<c:url value="/resources/css/mainPage.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/Button.css" />" rel="stylesheet">
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/ico.ico">
+    <link href="<c:url value="/resources/css/buttons.css" />" rel="stylesheet">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/ico.png">
 
     <script type="text/javascript" src="webjars/jquery/3.3.1-1/jquery.min.js"></script>
     <script type="text/javascript" src="webjars/bootstrap/4.1.3/js/bootstrap.min.js" defer></script>

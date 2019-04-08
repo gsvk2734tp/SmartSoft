@@ -17,18 +17,17 @@ public class AbstractLoadController {
     @Autowired
     private EventService service;
 
-    Event save(Event event) {
+    private void save(Event event) {
         log.info("Save {}", event);
         service.save(event);
-        return event;
     }
 
-    void deleteAll() {
+    private void deleteAll() {
         log.info("Delete all rows");
         service.deleteAll();
     }
 
-    public Map<String, String> findAllUsersNotFinish() {
+    Map<String, String> findAllUsersNotFinish() {
         log.info("Get all users dont finish form");
         return checkEmpty(service.findAllUsersNotFinish());
     }

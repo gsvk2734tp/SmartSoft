@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.smart_soft.csv_parser.model.Event;
 import ru.smart_soft.csv_parser.repository.EventRepository;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
@@ -38,7 +37,7 @@ public class EventServiceimpl implements EventService {
         return repository.findAll().stream()
                 .filter(event -> !(event.getUrl().isEmpty()))
                 .filter(event -> (System.currentTimeMillis() / 1000 - Long.valueOf(event.getTime())) < 3600)
-                .collect(groupingBy(Event::getUserId, Collectors.mapping(Event::getUrl, Collectors.joining(",\n"))));
+                .collect(groupingBy(Event::getUserId, Collectors.mapping(Event::getUrl, Collectors.joining(", "))));
     }
 
     @Override

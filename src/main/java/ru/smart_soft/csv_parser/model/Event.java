@@ -1,7 +1,8 @@
 package ru.smart_soft.csv_parser.model;
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "csv_parser")
@@ -24,7 +25,7 @@ public class Event extends AbstractBaseEntity {
     private String subtype;
 
     @Column(name = "url")
-    @org.hibernate.validator.constraints.URL
+    @URL
     private String url;
 
     @Column(name = "orgid")
