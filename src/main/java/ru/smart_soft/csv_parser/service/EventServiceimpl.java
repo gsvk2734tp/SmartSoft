@@ -61,7 +61,6 @@ public class EventServiceimpl implements EventService {
                 .filter(event -> event.getGroup().contains("dszn_"))
                 .sorted(Comparator.comparing(Event::getTime))
                 .collect(groupingBy(Event::getUserId, Collectors.mapping(Event::getSubtype, Collectors.joining(" "))));
-        map.forEach((x, y) -> System.out.println(x + " " + y));
         return map.entrySet().stream()
                 .filter(entry -> !(entry.getValue().endsWith("send")))
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> Arrays.stream(entry.getValue().split(" ")).reduce((a, b) -> b).orElse("false")));

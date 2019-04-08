@@ -50,7 +50,6 @@
                            value="ru.smart_soft.csv_parser.web.View$Persist"/>
                     <entry key="javax.persistence.validation.group.pre-update"
                            value="ru.smart_soft.csv_parser.web.View$Persist"/>
-
                 </map>
             </property>
             <property name="jpaVendorAdapter">
