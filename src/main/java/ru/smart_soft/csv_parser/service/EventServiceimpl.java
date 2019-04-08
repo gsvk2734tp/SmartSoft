@@ -57,11 +57,19 @@ public class EventServiceimpl implements EventService {
         Map<String, String> map = repository.findAll().stream()
                 .filter(event -> !(event.getUrl().isEmpty()))
                 .filter(event -> !("unauthorized".equals(event.getUserId().toLowerCase())))
-                .filter(event -> event.getGroup().contains("dszn_"))
                 .sorted(Comparator.comparing(Event::getTime))
                 .collect(groupingBy(Event::getUserId, Collectors.mapping(Event::getSubtype, Collectors.joining(" "))));
+        map.forEach((x, y) -> System.out.println(x + " " + y));
         return map.entrySet().stream()
-                .filter(entry -> !(entry.getValue().endsWith("send")))
+                .filter(this::isFinish)
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> Arrays.stream(entry.getValue().split(" ")).reduce((a, b) -> b).orElse("false")));
+    }
+
+    private boolean isFinish(Map.Entry<String, String> entry) {
+        boolean finish = entry.getValue().endsWith("send")
+                || (entry.getValue().endsWith("sent"))
+                || (entry.getValue().endsWith("success"))
+                || (entry.getValue().endsWith("done"));
+        return !finish;
     }
 }

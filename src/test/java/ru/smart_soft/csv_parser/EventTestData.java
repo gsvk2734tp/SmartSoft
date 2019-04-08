@@ -42,8 +42,6 @@ public class EventTestData {
     }
 
     public static void assertTwoMap(Map actual, Map expected) {
-        actual.forEach((a, b) -> System.out.println(a + " " + b));
-        expected.forEach((a, b) -> System.out.println(a + " " + b));
         assertTrue(Maps.difference(actual, expected).areEqual());
     }
 
