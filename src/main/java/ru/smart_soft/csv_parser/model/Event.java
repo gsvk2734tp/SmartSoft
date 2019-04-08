@@ -8,10 +8,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "csv_parser")
 @Access(AccessType.FIELD)
-public class Event extends AbstractBaseEntity {
+public class Event extends BaseEntity {
 
     @Column(name = "ssoid")
-    private String UserId;
+    private String userId;
 
     @Column(name = "ts")
     private String time;
@@ -51,8 +51,8 @@ public class Event extends AbstractBaseEntity {
 
     }
 
-    public Event(String UserId, String time, String group, String type, String subtype, String url, String orgId, String formid, String ltpa, String code, String sudirresponse, String dateTime) {
-        this.UserId = UserId;
+    public Event(String userId, String time, String group, String type, String subtype, String url, String orgId, String formid, String ltpa, String code, String sudirresponse, String dateTime) {
+        this.userId = userId;
         this.time = time;
         this.group = group;
         this.type = type;
@@ -67,11 +67,11 @@ public class Event extends AbstractBaseEntity {
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(String userId) {
-        this.UserId = userId;
+        this.userId = userId;
     }
 
     public String getTime() {
@@ -165,7 +165,7 @@ public class Event extends AbstractBaseEntity {
     @Override
     public String toString() {
         return "Event{" +
-                "UserId='" + UserId + '\'' +
+                "userId='" + userId + '\'' +
                 ", time=" + time +
                 ", group='" + group + '\'' +
                 ", type='" + type + '\'' +
@@ -182,10 +182,14 @@ public class Event extends AbstractBaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Event event = (Event) o;
-        return Objects.equals(UserId, event.UserId) &&
+        return Objects.equals(userId, event.userId) &&
                 Objects.equals(time, event.time) &&
                 Objects.equals(group, event.group) &&
                 Objects.equals(type, event.type) &&
@@ -193,14 +197,11 @@ public class Event extends AbstractBaseEntity {
                 Objects.equals(url, event.url) &&
                 Objects.equals(orgId, event.orgId) &&
                 Objects.equals(formid, event.formid) &&
-                Objects.equals(ltpa, event.ltpa) &&
-                Objects.equals(code, event.code) &&
-                Objects.equals(sudirresponse, event.sudirresponse) &&
                 Objects.equals(dateTime, event.dateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(UserId, time, group, type, subtype, url, orgId, formid, ltpa, code, sudirresponse, dateTime);
+        return Objects.hash(userId, time, group, type, subtype, url, orgId, formid, dateTime);
     }
 }

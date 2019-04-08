@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 
 @Service
-public class EventServiceimpl implements EventService {
+public class EventServiceImpl implements EventService {
     private final EventRepository repository;
 
     @Autowired
-    public EventServiceimpl(EventRepository repository) {
+    public EventServiceImpl(EventRepository repository) {
         this.repository = repository;
     }
 
@@ -59,17 +59,15 @@ public class EventServiceimpl implements EventService {
                 .filter(event -> !("unauthorized".equals(event.getUserId().toLowerCase())))
                 .sorted(Comparator.comparing(Event::getTime))
                 .collect(groupingBy(Event::getUserId, Collectors.mapping(Event::getSubtype, Collectors.joining(" "))));
-        map.forEach((x, y) -> System.out.println(x + " " + y));
         return map.entrySet().stream()
                 .filter(this::isFinish)
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> Arrays.stream(entry.getValue().split(" ")).reduce((a, b) -> b).orElse("false")));
     }
 
     private boolean isFinish(Map.Entry<String, String> entry) {
-        boolean finish = entry.getValue().endsWith("send")
+        return !(entry.getValue().endsWith("send")
                 || (entry.getValue().endsWith("sent"))
                 || (entry.getValue().endsWith("success"))
-                || (entry.getValue().endsWith("done"));
-        return !finish;
+                || (entry.getValue().endsWith("done")));
     }
 }

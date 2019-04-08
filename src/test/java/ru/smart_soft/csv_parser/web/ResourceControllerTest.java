@@ -36,7 +36,7 @@ class ResourceControllerTest extends AbstractControllerTest {
 
     @Test
     void testResourcesImagesError() throws Exception {
-        mockMvc.perform(get("/resources/images/error/404.svg"))
+        mockMvc.perform(get("/resources/images/errorPage/404.svg"))
                 .andExpect(content().contentType(MediaType.valueOf("image/svg+xml")))
                 .andExpect(status().isOk());
     }

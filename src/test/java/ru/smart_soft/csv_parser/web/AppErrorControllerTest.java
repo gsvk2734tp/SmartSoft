@@ -10,11 +10,11 @@ public class AppErrorControllerTest extends AbstractControllerTest {
 
     @Test
     void testError() throws Exception {
-        mockMvc.perform(get("/error"))
+        mockMvc.perform(get("/errorPage"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("error"))
-                .andExpect(forwardedUrl("/WEB-INF/JSP/error.jsp"));
+                .andExpect(view().name("errorPage"))
+                .andExpect(forwardedUrl("/WEB-INF/JSP/errorPage.jsp"));
     }
 
     @Test

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AppErrorController implements ErrorController {
 
-    private static final String PATH = "/error";
+    private static final String PATH = "/errorPage";
 
     @RequestMapping(value = PATH)
-    public String error() {
+    public String errorPage() {
         return "error";
     }
 

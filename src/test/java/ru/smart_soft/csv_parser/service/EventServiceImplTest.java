@@ -7,7 +7,7 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 import static ru.smart_soft.csv_parser.EventTestData.*;
 
-class EventServiceimplTest extends AbstractServiceTest {
+class EventServiceImplTest extends AbstractServiceTest {
 
     @Test
     void save() {

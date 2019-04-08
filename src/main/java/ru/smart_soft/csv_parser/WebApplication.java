@@ -13,7 +13,7 @@ public class WebApplication extends SpringBootServletInitializer {
 
     private static Logger logger = LoggerFactory.getLogger(WebApplication.class);
 
-    public static void main(String... args) throws Exception {
+    public static void main(String... args) {
         SpringApplication.run(WebApplication.class, args);
         logger.info("Application started...");
     }
