@@ -112,3 +112,13 @@ a.btn {
 .error {
     background-color: #f44336;
 }
+
+img#loady {
+    width: 120px;
+    height: 120px;
+    display: none;
+    margin-left: 48%;
+    bottom: 550px;
+    position: absolute;
+    z-index: 1;
+}

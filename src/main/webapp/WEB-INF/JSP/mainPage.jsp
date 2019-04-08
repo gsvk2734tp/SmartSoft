@@ -18,29 +18,33 @@
                 <i class="icon fa fa-check"></i>
                 <span class="js-fileName">Choose a file</span>
             </label>
-            <button type="submit">Upload</button>
+            <button id="uploadFile" onClick="clickButton()" type="submit">Upload</button>
         </form>
     </div>
 </div>
+<img id="loady" src="${pageContext.request.contextPath}/resources/images/preloader.gif" alt="#">
+<script>
+
+</script>
 <!--REPORTS -->
 <div class="container marketing">
     <div class="row shadow p-3 mb-5 bg-light rounded">
         <div class="col-lg-4 border-dark">
             <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/1.png/">
             <form action="CSV/report">
-                <button>Show Report</button>
+                <button onClick="clickButton()">Show Report</button>
             </form>
         </div>
         <div class="col-lg-4">
             <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/2.png">
             <form action="CSV/notFinished">
-                <button>Show Report</button>
+                <button onClick="clickButton()">Show Report</button>
             </form>
         </div>
         <div class="col-lg-4">
             <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/3.gif">
             <form action="CSV/topFive/">
-                <button>Show Report</button>
+                <button onClick="clickButton()">Show Report</button>
             </form>
         </div>
     </div>
