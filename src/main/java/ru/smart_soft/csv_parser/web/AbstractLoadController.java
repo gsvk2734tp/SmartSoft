@@ -18,7 +18,6 @@ public class AbstractLoadController {
     private EventService service;
 
     private void save(Event event) {
-        log.info("Save {}", event);
         service.save(event);
     }
 
