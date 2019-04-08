@@ -32,13 +32,13 @@
             </form>
         </div>
         <div class="col-lg-4">
-            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/5.png">
+            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/2.png">
             <form action="CSV/notFinished">
                 <button>Show Report</button>
             </form>
         </div>
         <div class="col-lg-4">
-            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/Top-5.gif">
+            <img class="img-circle" src="${pageContext.request.contextPath}/resources/images/3.gif">
             <form action="CSV/topFive/">
                 <button>Show Report</button>
             </form>

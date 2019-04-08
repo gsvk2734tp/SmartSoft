@@ -5,4 +5,5 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="ru.smart_soft.csv_parser.service"/>
+    <context:component-scan base-package="ru.smart_soft.csv_parser.configuration"/>
 </beans>
