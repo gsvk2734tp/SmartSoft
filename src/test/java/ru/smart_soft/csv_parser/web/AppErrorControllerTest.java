@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-public class AppErrorControllerTest extends AbstractControllerTest {
+class AppErrorControllerTest extends AbstractControllerTest {
 
     @Test
     void testError() throws Exception {

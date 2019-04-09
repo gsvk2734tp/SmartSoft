@@ -29,7 +29,7 @@ public class AbstractControllerTest {
         CHARACTER_ENCODING_FILTER.setForceEncoding(true);
     }
 
-    protected MockMvc mockMvc;
+    MockMvc mockMvc;
 
     @Autowired
     protected EventService service;
